@@ -1,4 +1,5 @@
-.tooltip {
+@-moz-document url-prefix() {
+  .tooltip {
     position: relative;
     border-bottom: 1px dotted; 
   }
@@ -40,3 +41,4 @@
     opacity: 1;
     transform: translate3d(0,0,0);
   }
+}
