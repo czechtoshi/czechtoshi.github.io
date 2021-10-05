@@ -26,8 +26,8 @@
     content: attr(data-title);
     font-size: 14px;
     padding: 6px 10px;
-      top: 26px;
-    white-space: nowrap;
+    top: 26px;
+    width: 10em;
   }
   .tooltip:after,
   .tooltip:before {
@@ -39,4 +39,3 @@
     opacity: 1;
     transform: translate3d(0,0,0);
   }
-  
