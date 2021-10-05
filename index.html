@@ -24,7 +24,7 @@
             padding: 0;
             width: 100%;
             height: 100%;
-            display: table
+
         }
 
         h1 {
@@ -44,27 +44,58 @@
             color: #f7931a;
         }
 
-        .main {
-            display: table-cell;
+        #body {
+
+            height: 100%;
+        }
+
+        #content {
+            display: table;
             text-align: center;
+            width: 100vw;
+            height: 75%;
+        }
+
+        div.main {
+            display: table-cell;
             vertical-align: middle;
         }
 
+        div.lang {
+            text-align: right;
+            padding: 1.2em;
+            vertical-align: top;
+        }
+
+        a {
+            color: #D8D8D8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 
 </head>
 
 <body>
-    <div class="main" id="main_en">
-        <h1>It is a good time to buy <span class="bitcoin">bitcoin</span>?</h1>
-        <p class="answer">Yes!</p>
-        <p class="long">It is <span id="spanDate"></span> and that is a good time to buy some bitcoin!</p>
-    </div>
+    <div id="body">
+        <div class="lang"><a id="langlink">en</a></div>
+        <div id="content">
+            <div class="main" id="main_en">
+                <h1>It is a good time to buy <span class="bitcoin">bitcoin</span>?</h1>
+                <p class="answer">Yes!</p>
+                <p class="long">It is <span id="spanDate"></span> and that is a good time to buy some bitcoin!</p>
+            </div>
 
-    <div class="main" id="main_cs">
-        <h1>Je vhodný čas k nákupu <span class="bitcoin">bitcoinu</span>?</h1>
-        <p class="answer">Ano!</p>
-        <p class="long">Dnes je <span id="spanDateCs"></span> a to je vhodný čas k nákupu nějakých bitcoinů!</p>
+            <div class="main" id="main_cs">
+                <h1>Je vhodný čas k nákupu <span class="bitcoin">bitcoinu</span>?</h1>
+                <p class="answer">Ano!</p>
+                <p class="long">Dnes je <span id="spanDateCs"></span> a to je vhodný čas k nákupu nějakých bitcoinů!</p>
+            </div>
+        </div>
+
     </div>
 
     <script type="text/javascript">
@@ -81,10 +112,14 @@
         if (queryString == '?lang=cs') {
             document.getElementById("main_en").style.display = "none";
             document.documentElement.setAttribute("lang", "cs");
+            document.getElementById("langlink").href = "https://goodtimetobuybitcoin.eu";
+            document.getElementById("langlink").innerHTML = "en";
         }
         else {
             document.getElementById("main_cs").style.display = "none";
             document.documentElement.setAttribute("lang", "en");
+            document.getElementById("langlink").href = "https://goodtimetobuybitcoin.eu?lang=cs";
+            document.getElementById("langlink").innerHTML = "cs";
         }
     </script>
 
