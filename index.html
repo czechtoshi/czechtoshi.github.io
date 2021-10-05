@@ -132,10 +132,9 @@
             'August', 'September', 'October', 'November', 'December'];
         var monthsCs = ['ledna', 'února', 'března', 'dubna', 'května', 'června', 'července',
             'srpna', 'září', 'října', 'listopadu', 'prosince'];
-        var tomorrow = new Date();
-        tomorrow.setTime(tomorrow.getTime() + (1000 * 3600 * 24));
-        document.getElementById("spanDate").innerHTML = months[tomorrow.getMonth()] + " " + tomorrow.getDate() + ", " + tomorrow.getFullYear();
-        document.getElementById("spanDateCs").innerHTML = tomorrow.getDate() + ". " + monthsCs[tomorrow.getMonth()] + " " + + tomorrow.getFullYear();
+        var today = new Date();
+        document.getElementById("spanDate").innerHTML = months[today.getMonth()] + " " + today.getDate() + ", " + today.getFullYear();
+        document.getElementById("spanDateCs").innerHTML = today.getDate() + ". " + monthsCs[today.getMonth()] + " " + today.getFullYear();
 
         const queryString = window.location.search;
         if (queryString == '?lang=cs') {
