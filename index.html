@@ -6,6 +6,8 @@
     <title>It is a good time to buy bitcoin?</title>
     <link rel="shortcut icon" href="https://bitcoin.org/favicon.png?1630339663">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta property="og:title" content="It is a good time to buy bitcoin?">
     <meta property="og:description" content="This site is answering the most important question of your life.">
     <meta name="twitter:card" content="summary">
@@ -19,12 +21,12 @@
 
         html,
         body {
-            background-color: #181818;
             font-family: UbuntuBI, arial;
             margin: 0;
             padding: 0;
             width: 100%;
             height: 100%;
+            background: rgb(60, 75, 87);
         }
 
         h1 {
@@ -58,6 +60,8 @@
         div.main {
             display: table-cell;
             vertical-align: middle;
+            padding-left: 1em;
+            padding-right: 1em;
         }
 
         div.lang {
@@ -74,24 +78,51 @@
         a:hover {
             color: white;
         }
+
+        #loader_cs,
+        #loader_en {
+            padding-top: 6.3em;
+            padding-bottom: 6.3em;
+        }
     </style>
     <link rel="stylesheet" href="tooltip.css">
+    <link rel="stylesheet" href="loader.css">
 </head>
 
-<body>
+<body onload="setInterval(onTimerElapsed, Math.floor(Math.random() * 1500));">
     <div id="body">
         <div class="lang"><a id="langlink">en</a></div>
         <div id="content">
             <div class="main" id="main_en">
                 <h1>It is a good time to buy <span class="bitcoin">bitcoin</span>?</h1>
-                <p class="answer">Yes!</p>
-                <p class="long">It is <span id="spanDate"></span> and that is a good time to buy some <span class="tooltip" data-title="a satoshi is the smallest unit used on the onchain layer of the Bitcoin network">satoshis</span>!</p>
+                <div id="loader_en">
+                    <div class="loader">
+                        <div class="inner one"></div>
+                        <div class="inner two"></div>
+                        <div class="inner three"></div>
+                    </div>
+                </div>
+                <p class="answer" id="answer_en" style="display:none;">Yes!</p>
+                <p class="long" id="long_en" style="display:none;">It is <span id="spanDate"></span> and that is a good
+                    time to buy some <span class="tooltip"
+                        data-title="a satoshi is the smallest unit used on the onchain layer of the Bitcoin network">satoshis</span>!
+                </p>
             </div>
 
             <div class="main" id="main_cs">
                 <h1>Je vhodný čas k nákupu <span class="bitcoin">bitcoinu</span>?</h1>
-                <p class="answer">Ano!</p>
-                <p class="long">Dnes je <span id="spanDateCs"></span> a to je vhodný čas k nákupu nějakých <span class="tooltip" data-title="satoshi je nejmenší možná jednotka používaná v základní vrstvě bitcoinové sítě">satoshi</span>!</p>
+                <div id="loader_cs">
+                    <div class="loader">
+                        <div class="inner one"></div>
+                        <div class="inner two"></div>
+                        <div class="inner three"></div>
+                    </div>
+                </div>
+                <p class="answer" id="answer_cs" style="display:none;">Ano!</p>
+                <p class="long" id="long_cs" style="display:none;">Dnes je <span id="spanDateCs"></span> a to je vhodný
+                    čas k nákupu nějakých <span class="tooltip"
+                        data-title="satoshi je nejmenší možná jednotka používaná v základní vrstvě bitcoinové sítě">satoshi</span>!
+                </p>
             </div>
         </div>
 
@@ -120,10 +151,21 @@
             document.getElementById("langlink").href = "https://goodtimetobuybitcoin.eu?lang=cs";
             document.getElementById("langlink").innerHTML = "cs";
         }
+
+        function onTimerElapsed() {
+            const queryString = window.location.search;
+            if (queryString == '?lang=cs') {
+                document.getElementById("answer_cs").style.display = "";
+                document.getElementById("long_cs").style.display = "";
+                document.getElementById("loader_cs").style.display = "none";
+            }
+            else {
+                document.getElementById("answer_en").style.display = "";
+                document.getElementById("long_en").style.display = "";
+                document.getElementById("loader_en").style.display = "none";
+            }
+        }
     </script>
 
 </body>
-
-
-
 </html>
