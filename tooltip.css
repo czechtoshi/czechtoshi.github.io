@@ -23,6 +23,7 @@ span.tooltip:after{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+  margin-left: -14em;
 }
 span.tooltip:before {
   position: absolute;
