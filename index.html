@@ -105,8 +105,8 @@
                 </div>
                 <p class="answer" id="answer_en" style="display:none;">Yes!</p>
                 <p class="long" id="long_en" style="display:none;">It is <span id="spanDate"></span> and that is a good
-                    time to buy some <span class="tooltip"
-                        data-title="a satoshi is the smallest unit used on the onchain layer of the Bitcoin network">satoshis</span>!
+                    time to buy some <span class="tooltip bottom animationTips blue"
+                        tool-tips="a satoshi is the smallest unit used on the onchain layer of the Bitcoin network">satoshis</span>!
                 </p>
             </div>
 
@@ -121,8 +121,8 @@
                 </div>
                 <p class="answer" id="answer_cs" style="display:none;">Ano!</p>
                 <p class="long" id="long_cs" style="display:none;">Dnes je <span id="spanDateCs"></span> a to je vhodný
-                    čas k nákupu nějakých <span class="tooltip"
-                        data-title="satoshi je nejmenší možná jednotka používaná v základní vrstvě bitcoinové sítě">satoshi</span>!
+                    čas k nákupu nějakých <span class="tooltip bottom animationTips blue"
+                        tool-tips="satoshi je nejmenší možná jednotka používaná v základní vrstvě bitcoinové sítě">satoshi</span>!
                 </p>
             </div>
         </div>
@@ -134,10 +134,9 @@
             'August', 'September', 'October', 'November', 'December'];
         var monthsCs = ['ledna', 'února', 'března', 'dubna', 'května', 'června', 'července',
             'srpna', 'září', 'října', 'listopadu', 'prosince'];
-        var tomorrow = new Date();
-        tomorrow.setTime(tomorrow.getTime() + (1000 * 3600 * 24));
-        document.getElementById("spanDate").innerHTML = months[tomorrow.getMonth()] + " " + tomorrow.getDate() + ", " + tomorrow.getFullYear();
-        document.getElementById("spanDateCs").innerHTML = tomorrow.getDate() + ". " + monthsCs[tomorrow.getMonth()] + " " + + tomorrow.getFullYear();
+        var today = new Date();
+        document.getElementById("spanDate").innerHTML = months[today.getMonth()] + " " + today.getDate() + ", " + today.getFullYear();
+        document.getElementById("spanDateCs").innerHTML = today.getDate() + ". " + monthsCs[today.getMonth()] + " " + today.getFullYear();
 
         const queryString = window.location.search;
         if (queryString == '?lang=cs') {
@@ -169,4 +168,5 @@
     </script>
 
 </body>
+
 </html>
