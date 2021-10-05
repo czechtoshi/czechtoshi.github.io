@@ -3,15 +3,19 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <link href="https://allfont.net/allfont.css?fonts=ubuntu-bold-italic" rel="stylesheet" type="text/css" />
     <title>It is a good time to buy bitcoin?</title>
     <link rel="shortcut icon" href="https://bitcoin.org/favicon.png?1630339663">
 
     <style>
+        @font-face {
+            font-family: UbuntuBI;
+            src: url(ubuntu-bold-italic.ttf);
+        }
+
         html,
         body {
             background-color: #181818;
-            font-family: 'Ubuntu Bold Italic', arial;
+            font-family: UbuntuBI, arial;
             margin: 0;
             padding: 0;
             width: 100%;
@@ -32,8 +36,7 @@
             font-size: 500%;
         }
 
-        span.bitcoin
-        {
+        span.bitcoin {
             color: #f7931a;
         }
 
@@ -68,15 +71,14 @@
         var tomorrow = new Date();
         tomorrow.setTime(tomorrow.getTime() + (1000 * 3600 * 24));
         document.getElementById("spanDate").innerHTML = months[tomorrow.getMonth()] + " " + tomorrow.getDate() + ", " + tomorrow.getFullYear();
-        document.getElementById("spanDateCs").innerHTML = tomorrow.getDate() + ". " + monthsCs[tomorrow.getMonth()] + " " +  + tomorrow.getFullYear();
+        document.getElementById("spanDateCs").innerHTML = tomorrow.getDate() + ". " + monthsCs[tomorrow.getMonth()] + " " + + tomorrow.getFullYear();
 
         const queryString = window.location.search;
         if (queryString == '?lang=cs') {
             document.getElementById("main_en").style.display = "none";
             document.documentElement.setAttribute("lang", "cs");
         }
-        else
-        {
+        else {
             document.getElementById("main_cs").style.display = "none";
             document.documentElement.setAttribute("lang", "en");
         }
