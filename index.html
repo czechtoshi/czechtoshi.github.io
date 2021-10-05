@@ -85,6 +85,20 @@
             padding-top: 6.3em;
             padding-bottom: 6.3em;
         }
+
+        #disclaim {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            width: 100vw;
+        }
+
+        p#disclaim_cs,
+        p#disclaim_en {
+            color: #999999;
+            font-size: smaller;
+        }
     </style>
     <link rel="stylesheet" href="tooltip.css">
     <link rel="stylesheet" href="loader.css">
@@ -126,7 +140,10 @@
                 </p>
             </div>
         </div>
-
+        <div id=disclaim>
+            <p id="disclaim_en">This is not financial advice. Never do stuffs only because some webpage told you so. </p>
+            <p id="disclaim_cs">Toto není finanční rada. Nikdy nedělejte nic jenom proto, že vám to řekla webová stránka. </p>
+        </div>
     </div>
 
     <script type="text/javascript">
@@ -144,12 +161,14 @@
             document.documentElement.setAttribute("lang", "cs");
             document.getElementById("langlink").href = "https://goodtimetobuybitcoin.eu";
             document.getElementById("langlink").innerHTML = "en";
+            document.getElementById("disclaim_en").style.display = "none";
         }
         else {
             document.getElementById("main_cs").style.display = "none";
             document.documentElement.setAttribute("lang", "en");
             document.getElementById("langlink").href = "https://goodtimetobuybitcoin.eu?lang=cs";
             document.getElementById("langlink").innerHTML = "cs";
+            document.getElementById("disclaim_cs").style.display = "none";
         }
 
         function onTimerElapsed() {
@@ -157,6 +176,7 @@
             if (queryString == '?lang=cs') {
                 document.getElementById("answer_cs").style.display = "";
                 document.getElementById("long_cs").style.display = "";
+                document.getElementById("disclaim_cs").style.display = "";
                 document.getElementById("loader_cs").style.display = "none";
             }
             else {
